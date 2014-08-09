@@ -1,0 +1,17 @@
+.navbar-custom {
+    background-color:#0A10CA;
+    color:#ffffff;
+    border-radius:0;
+}
+
+
+.navbar-brand-custom {
+    color:#ffffff;
+    font-size: 1.5em;
+    border-radius:0;
+}
+
+.jumbotron-custom {
+    color:#ffffff;
+    background-color:#0042E1;
+}
