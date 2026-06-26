@@ -1,3 +1,8 @@
+/* Push page content below fixed navbar */
+body {
+  padding-top: 60px;
+}
+
 .navbar-custom {
     background-color:#0A10CA;
     color:#ffffff;
