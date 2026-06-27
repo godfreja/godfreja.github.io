@@ -1,0 +1,32 @@
+baseURL = "https://www.votejimgodfrey.com/"
+languageCode = "en-us"
+title = "Jim Godfrey for Mayor of Cambridge"
+
+[params]
+  description  = "Re-elect Jim Godfrey for Mayor of Cambridge, MN"
+  authorEmail  = "contactjim@votejimgodfrey.com"
+  address      = "512 Old North Main, Cambridge, MN 55008"
+  copyright    = "2026"
+  disclaimer   = "Prepared and paid for by Jim Godfrey"
+
+# Navigation menu — edit here to change the nav bar on every page
+[[menus.main]]
+  name   = "Home"
+  url    = "/"
+  weight = 1
+
+[[menus.main]]
+  name   = "Contact"
+  url    = "/contact/"
+  weight = 2
+
+# Uncomment these when the full site is ready to launch:
+# [[menus.main]]
+#   name   = "Community"
+#   url    = "/community/"
+#   weight = 3
+#
+# [[menus.main]]
+#   name   = "Family"
+#   url    = "/family/"
+#   weight = 4

@@ -1,0 +1,37 @@
+{{ define "title" }}{{ .Title }} — {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+  <div class="jumbotron-custom py-4">
+    <div class="container text-white">
+      <h2>{{ .Title }}</h2>
+      {{ with .Params.intro }}<p class="lead">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+
+  <div class="container mt-4">
+
+    {{/* Photo gallery — rendered when the page has a "photos" list in front matter */}}
+    {{ with .Params.photos }}
+    <div class="row">
+      {{ range . }}
+      <div class="col-sm-6 mb-4">
+        <img src="{{ .src | relURL }}" class="img-fluid" alt="{{ .caption }}">
+        <p class="text-muted mt-2">{{ .caption }}</p>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{/* Regular Markdown content (used on Family, Contact, etc.) */}}
+    {{ if .Content }}
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {{ .Content }}
+      </div>
+    </div>
+    {{ end }}
+
+  </div>
+
+{{ end }}

@@ -1,0 +1,42 @@
+/* Push page content below the fixed navbar */
+body {
+  padding-top: 60px;
+}
+
+/* Navbar */
+.navbar-custom {
+  background-color: #0A10CA;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: #ffffff;
+}
+
+.navbar-custom .nav-link.active,
+.navbar-custom .nav-link:hover {
+  background-color: #0078D7;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+/* Hero / jumbotron */
+.jumbotron-custom {
+  background-color: #0042E1;
+  color: #ffffff;
+}
+
+/* Contact page email button */
+.btn-campaign {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #0078D7;
+  color: #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-campaign:hover {
+  background-color: #0A10CA;
+  color: #ffffff;
+}

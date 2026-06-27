@@ -1,0 +1,29 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+
+  <div class="jumbotron-custom py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-3 mb-3 mb-md-0">
+          <img src="{{ "assets/jim_official.jpg" | relURL }}"
+               class="img-fluid rounded"
+               alt="Jim Godfrey">
+        </div>
+        <div class="col-md-9 text-white">
+          <h1>{{ .Params.hero_title }}</h1>
+          <p class="lead">{{ .Params.hero_subtitle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 text-center">
+        <p class="lead">{{ .Params.placeholder_message }}</p>
+      </div>
+    </div>
+  </div>
+
+{{ end }}
