@@ -2,44 +2,107 @@
 
 {{ define "main" }}
 
-  <div class="jumbotron-custom py-5">
+  {{/* ---------- hero: the flyer's front panel ---------- */}}
+  <section class="field hero">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-3 mb-3 mb-md-0">
-          <img src="{{ .Params.hero_image | relURL }}"
-               class="img-fluid rounded"
-               alt="{{ .Params.hero_image_alt }}">
-        </div>
-        <div class="col-md-9 text-white">
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-7">
+          {{ with .Params.hero_eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
           <h1>{{ .Params.hero_title }}</h1>
           <p class="lead">{{ .Params.hero_subtitle }}</p>
+
+          <div class="star-rule">
+            <i class="rule-l"></i>
+            {{ partial "star.html" . }}
+            <i class="rule-r"></i>
+          </div>
+
+          <p class="mb-0">
+            <a class="btn-campaign" href="#record">See the record</a>
+            <a class="btn-campaign-ghost ms-2" href="{{ "/contact/" | relURL }}">Contact Jim</a>
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <img src="{{ .Params.hero_image | relURL }}"
+               class="img-fluid hero-portrait"
+               alt="{{ .Params.hero_image_alt }}">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {{/* ---------- values strip ---------- */}}
+  {{ with .Site.Params.values }}
+  <div class="values-strip">
+    <div class="container">
+      <div class="values-inner">
+        {{ range $i, $v := . }}
+          {{ if $i }}{{ partial "star.html" . }}{{ end }}
+          <span>{{ $v }}</span>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+
+  {{/* ---------- the record, as checkmark cards ---------- */}}
+  <section class="record" id="record">
+    <div class="container">
+
+      <h2 class="text-center mb-2">{{ .Params.progress_heading }}</h2>
+      {{ with .Params.progress_subheading }}
+      <p class="section-sub text-center mb-5">{{ . }}</p>
+      {{ end }}
+
+      <div class="row g-4">
+        {{ range .Params.progress_items }}
+        <div class="col-md-6 col-lg-4">
+          <div class="record-card">
+            <div class="check">{{ partial "check.html" . }}</div>
+            <h3>{{ strings.TrimSuffix ":" .title }}</h3>
+            <p>{{ .text }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+
+    </div>
+  </section>
+
+  {{/* ---------- rotating quote band ---------- */}}
+  {{ with .Params.pull_quotes }}
+    {{ partial "quote-rotator.html" (dict
+        "quotes" .
+        "cite" (printf "%s, Mayor of Cambridge" ($.Site.Params.candidate | default "Jim Godfrey"))) }}
+  {{ end }}
+
+  {{/* ---------- closing note ---------- */}}
+  {{ if .Content }}
+  <section class="closing">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          {{ .Content }}
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  {{ end }}
 
-  <div class="container mt-5 mb-5">
-    <div class="row">
-
-      <div class="col-md-8">
-        <h2>{{ .Params.progress_heading }}</h2>
-
-        <ul>
-          {{ range .Params.progress_items }}
-          <li>
-            <strong>{{ .title }}</strong> {{ .text }}
-          </li>
-          {{ end }}
-        </ul>
-
-        {{ .Content }}
+  {{/* ---------- campaign photo ---------- */}}
+  {{ with .Params.campaign_photo }}
+  <section class="campaign-photo">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <img src="{{ . | relURL }}" class="img-fluid rounded" alt="{{ $.Params.campaign_photo_alt }}">
+        </div>
       </div>
-
-      <div class="col-md-4 pt-md-5">
-        <img src="{{ .Params.campaign_photo | relURL }}" class="img-fluid" alt="{{ .Params.campaign_photo_alt }}">
-      </div>
-
     </div>
-  </div>
+  </section>
+  {{ end }}
 
 {{ end }}

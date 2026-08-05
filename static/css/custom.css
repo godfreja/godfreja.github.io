@@ -1,42 +1,443 @@
-/* Push page content below the fixed navbar */
+/* ==========================================================================
+   Vote Jim Godfrey — campaign design system
+   Palette and type derived from the 2026 campaign flyer.
+   Layered on top of Bootstrap 5.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap');
+
+:root {
+  --slate:      #5b60a8;   /* periwinkle field       */
+  --slate-dk:   #3d4160;   /* dark diagonal chevron  */
+  --slate-dkr:  #33364f;   /* navbar + footer band   */
+  --coral:      #e2604b;   /* accent                 */
+  --coral-dk:   #cf5340;
+  --coral-lt:   #ef8672;
+  --sign-blue:  #0a10ca;   /* yard sign blue         */
+
+  --ink:        #23252f;
+  --ink-soft:   #555a6e;
+  --paper-2:    #f4f5fa;
+  --line:       #e2e4ef;
+
+  --sans:  'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Source Serif 4', Georgia, serif;
+}
+
+/* ---------- base ---------------------------------------------------------- */
+
 body {
-  padding-top: 60px;
+  font-family: var(--sans);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Navbar */
+h1, h2, h3, h4 { font-family: var(--sans); letter-spacing: -.015em; }
+
+a { color: var(--slate); }
+a:hover { color: var(--coral-dk); }
+
+/* ---------- navbar -------------------------------------------------------- */
+
 .navbar-custom {
-  background-color: #0A10CA;
+  background-color: var(--slate-dkr);
+  border-bottom: 3px solid var(--coral);
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand {
+  padding-top: .55rem;
+  padding-bottom: .55rem;
+}
+
+.navbar-custom .navbar-brand img {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+
 .navbar-custom .nav-link {
   color: #ffffff;
+  font-weight: 500;
+  font-size: .95rem;
+  padding: 1.35rem .9rem;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  transition: background-color .15s ease, border-color .15s ease;
 }
 
-.navbar-custom .nav-link.active,
-.navbar-custom .nav-link:hover {
-  background-color: #0078D7;
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+  background-color: rgba(255, 255, 255, .08);
   color: #ffffff;
-  border-radius: 4px;
 }
 
-/* Hero / jumbotron */
-.jumbotron-custom {
-  background-color: #0042E1;
+.navbar-custom .nav-link.active {
   color: #ffffff;
+  border-bottom-color: var(--coral);
 }
 
-/* Contact page email button */
+.navbar-custom .navbar-toggler {
+  border-color: rgba(255, 255, 255, .4);
+  margin: .55rem 0;
+}
+
+/* persistent election-day button */
+.nav-vote {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--coral);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: .9rem;
+  padding: .6rem 1.15rem;
+  border-radius: 3px;
+  text-decoration: none;
+  margin: .75rem 0 .75rem .6rem;
+  white-space: nowrap;
+}
+
+.nav-vote:hover { background-color: var(--coral-dk); color: #ffffff; }
+
+@media (max-width: 767.98px) {
+  .navbar-custom .nav-link {
+    padding: .7rem .25rem;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .navbar-custom .nav-link.active { color: var(--coral-lt); }
+  .nav-vote { margin: .5rem 0 1rem; justify-content: center; }
+}
+
+/* ---------- the chevron field (flyer background) -------------------------- */
+
+.field {
+  position: relative;
+  background-color: var(--slate);
+  color: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.field::before,
+.field::after {
+  content: '';
+  position: absolute;
+  inset: -20% -10%;
+  background-color: var(--slate-dk);
+  z-index: -1;
+}
+
+.field::before {
+  clip-path: polygon(0 62%, 100% 8%, 100% 30%, 0 84%);
+  opacity: .85;
+}
+
+.field::after {
+  clip-path: polygon(0 96%, 100% 44%, 100% 130%, 0 130%);
+  opacity: .6;
+}
+
+/* ---------- hero ---------------------------------------------------------- */
+
+.hero { padding: 3.75rem 0 4rem; }
+
+.hero .eyebrow {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--coral-lt);
+  margin-bottom: .85rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.35rem, 5vw, 3.85rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.1rem;
+  letter-spacing: -.025em;
+}
+
+.hero .lead {
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+.hero-portrait {
+  border-radius: 6px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .28);
+  max-width: 380px;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero-portrait { margin-left: auto; }
+}
+
+/* ---------- coral / star rule -------------------------------------------- */
+
+.star-rule {
+  display: flex;
+  align-items: center;
+  max-width: 420px;
+  margin: 1.6rem 0;
+}
+
+.star-rule i { height: 7px; border-radius: 2px; display: block; }
+.star-rule .rule-l { background-color: var(--coral); flex: 1.1; }
+.star-rule .rule-r { background-color: #7f83c4; flex: 1.4; }
+.star-rule svg { width: 42px; height: 42px; margin: 0 -4px; flex: none; fill: #ffffff; }
+
+/* ---------- buttons ------------------------------------------------------- */
+
 .btn-campaign {
   display: inline-block;
-  padding: 10px 24px;
-  background-color: #0078D7;
+  padding: .8rem 1.75rem;
+  background-color: var(--coral);
   color: #ffffff;
   border-radius: 4px;
   text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
 }
 
-.btn-campaign:hover {
-  background-color: #0A10CA;
+.btn-campaign:hover { background-color: var(--coral-dk); color: #ffffff; }
+
+.btn-campaign-ghost {
+  display: inline-block;
+  padding: calc(.8rem - 2px) calc(1.75rem - 2px);
+  border: 2px solid rgba(255, 255, 255, .55);
   color: #ffffff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
 }
+
+.btn-campaign-ghost:hover { background-color: rgba(255, 255, 255, .14); color: #ffffff; }
+
+/* ---------- values strip -------------------------------------------------- */
+
+.values-strip {
+  background-color: var(--slate-dkr);
+  color: #ffffff;
+  padding: 1.35rem 0;
+}
+
+.values-strip .values-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem 1.9rem;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+}
+
+.values-strip svg { width: 20px; height: 20px; fill: var(--coral); flex: none; }
+
+/* ---------- record cards -------------------------------------------------- */
+
+.record { background-color: var(--paper-2); padding: 4rem 0; }
+
+.record h2 { font-size: clamp(1.65rem, 3vw, 2.15rem); font-weight: 600; }
+.record .section-sub { color: var(--ink-soft); font-weight: 300; }
+
+.record-card {
+  background-color: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--coral);
+  border-radius: 6px;
+  padding: 1.6rem 1.5rem 1.5rem;
+  height: 100%;
+}
+
+.record-card .check {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--slate);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: .9rem;
+}
+
+.record-card .check svg { width: 18px; height: 18px; }
+
+.record-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--slate-dk);
+  margin-bottom: .55rem;
+}
+
+.record-card p {
+  font-size: .94rem;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+/* ---------- pull quote ---------------------------------------------------- */
+
+.pull-quote { background-color: var(--slate); color: #ffffff; padding: 3.6rem 0; }
+
+/* Every quote sits in the same grid cell, so the band is always as tall as the
+   longest one and its height never changes when the quote swaps. */
+.quote-rotator {
+  display: grid;
+  align-items: center;
+}
+
+.quote-slide {
+  grid-area: 1 / 1;
+  margin: 0;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  /* hide only once the fade has finished, so nothing ghosts underneath */
+  transition: opacity .7s ease, visibility 0s linear .7s;
+}
+
+.quote-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .7s ease, visibility 0s linear 0s;
+}
+
+.quote-slide blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.6vw, 1.85rem);
+  line-height: 1.5;
+  margin: 0 0 1.2rem;
+}
+
+.quote-slide cite {
+  font-style: normal;
+  font-size: .85rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: .82;
+}
+
+.quote-dots {
+  display: flex;
+  justify-content: center;
+  gap: .55rem;
+  margin-top: 1.75rem;
+}
+
+.quote-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, .38);
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.quote-dot:hover { background-color: rgba(255, 255, 255, .65); }
+.quote-dot.is-active { background-color: var(--coral); transform: scale(1.15); }
+.quote-dot:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-slide { transition: none; }
+  .quote-dot { transition: none; }
+}
+
+/* ---------- closing note + campaign photo --------------------------------- */
+
+/* These two sit between the quote band and the footer and share one tinted
+   background, so the tail of the page reads as a single block rather than
+   striping white/grey. */
+.closing { background-color: var(--paper-2); padding: 3.25rem 0 0; }
+.closing p { font-size: 1.05rem; line-height: 1.7; font-weight: 300; color: var(--ink-soft); }
+.closing p:last-child { margin-bottom: 0; }
+
+.campaign-photo { background-color: var(--paper-2); padding: 3.25rem 0; }
+
+/* ---------- interior pages ------------------------------------------------ */
+
+.page-head { padding: 2.6rem 0 2.4rem; }
+.page-head h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 700; margin-bottom: .5rem; }
+.page-head .lead { font-weight: 300; font-size: 1.08rem; line-height: 1.6; max-width: 62ch; margin-bottom: 0; }
+
+/* Deliberately not height:100% — the grid columns stretch to match the tallest
+   photo in the row, and stretching the card with them leaves a bare gap under
+   short photos' captions. Letting each card keep its natural height instead
+   means the border always wraps the content. */
+.photo-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.photo-card img { width: 100%; display: block; }
+
+.photo-card figcaption {
+  padding: .85rem 1rem;
+  font-size: .92rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin: 0;
+}
+
+.prose { font-size: 1.05rem; line-height: 1.75; font-weight: 300; }
+.prose strong { font-weight: 600; color: var(--slate-dk); }
+
+/* ---------- footer band --------------------------------------------------- */
+
+.site-footer {
+  background-color: var(--slate-dkr);
+  color: #ffffff;
+  text-align: center;
+  padding: 2.4rem 1.25rem 1.9rem;
+}
+
+.site-footer .footer-cta {
+  font-size: clamp(1.4rem, 3.2vw, 2.15rem);
+  font-weight: 700;
+  margin-bottom: .7rem;
+}
+
+.site-footer .pillars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--coral);
+  font-weight: 600;
+  letter-spacing: .08em;
+  font-size: clamp(.9rem, 2vw, 1.4rem);
+  margin-bottom: .85rem;
+}
+
+.site-footer .pillars svg { width: 46px; height: 46px; flex: none; fill: #ffffff; }
+
+.site-footer .footer-url {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin-bottom: .45rem;
+}
+
+.site-footer .footer-fine {
+  font-size: .7rem;
+  color: #b9bcd0;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.site-footer a { color: #ffffff; }

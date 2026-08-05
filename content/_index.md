@@ -1,5 +1,6 @@
 ---
 title: "Home"
+hero_eyebrow: "Vote Jim Godfrey · November 3rd"
 hero_title: "Commitment to Cambridge"
 hero_subtitle: >
   I'm Jim Godfrey. As Mayor, I focus on our citizens and our future while safeguarding those qualities
@@ -8,6 +9,7 @@ hero_subtitle: >
 hero_image: "assets/jim_official.jpg"
 hero_image_alt: "Mayor Jim Godfrey"
 progress_heading: "Our Progress So Far and Our Goals for the Future"
+progress_subheading: "Stable growth which benefits every neighborhood in Cambridge."
 progress_items:
   - title: "Tax Rate Reduction:"
     text: >
@@ -39,11 +41,16 @@ progress_items:
     text: >
       Maintained and improved our City Parks while creating more activities for our families and children.
       Working to build a new regional public park including a lakeside beach attraction.
+# Quotes shown in the blue band. Add or remove entries here — with more than one,
+# they fade from one to the next every 30 seconds.
+pull_quotes:
+  - text: >-
+      By nurturing an environment rich with economic development, decent jobs, and safe streets,
+      we will firmly establish Cambridge as Minnesota's Opportunity Community.
+  - text: >-
+      Every citizen in Cambridge deserves a city defined by livability, stability, fairness,
+      integrity, and thoughtful optimism. I would be honored to continue the great work we have
+      started and to earn your vote for Jim Godfrey as Mayor of Cambridge.
 campaign_photo: "assets/vote_matters.jpg"
 campaign_photo_alt: "Your vote matters!"
 ---
-
-Every citizen in Cambridge deserves a city defined by livability, stability, fairness, integrity,
-and thoughtful optimism. By nurturing an environment rich with economic development, decent jobs,
-and safe streets, we will firmly establish Cambridge as Minnesota's Opportunity Community.
-I would be honored to continue the great work we have started and to earn your vote for Jim Godfrey as Mayor of Cambridge.

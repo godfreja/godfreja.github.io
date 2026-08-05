@@ -3,11 +3,27 @@ languageCode = "en-us"
 title = "Jim Godfrey for Mayor of Cambridge"
 
 [params]
-  description  = "Re-elect Jim Godfrey for Mayor of Cambridge, MN"
+  description  = "Vote Jim Godfrey for Mayor of Cambridge, MN"
   authorEmail  = "contactjim@votejimgodfrey.com"
-  address      = "512 Old North Main, Cambridge, MN 55008"
+  address      = "512 Old North Main Street, Cambridge, MN 55008"
   copyright    = "2026"
-  disclaimer   = "Prepared and paid for by Jim Godfrey"
+  disclaimer   = "Prepared and Paid for by Friends of Jim Godfrey"
+
+  # ---- Campaign branding (taken from the 2026 flyer) ----
+  candidate           = "Jim Godfrey"
+  logo                = "assets/mainlogo.svg"   # yard sign lockup shown in the navbar
+  display_url         = "WWW.VOTEJIMGODFREY.COM"
+
+  # Election day. election_date_short is what fits on the navbar button.
+  election_date       = "November 3rd"
+  election_date_short = "Nov 3"
+  vote_url            = "https://www.ci.cambridge.mn.us/our-community/elections"             # where the navbar button points
+
+  # The four words from the flyer, shown in the strip under the hero
+  values  = ["Stability", "Fairness", "Integrity", "Thoughtful Optimism"]
+
+  # The footer band
+  pillars = ["SAFETY", "STABILITY", "FAIRNESS"]
 
 # Navigation menu — edit here to change the nav bar on every page
 [[menus.main]]

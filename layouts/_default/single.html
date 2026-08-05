@@ -2,31 +2,33 @@
 
 {{ define "main" }}
 
-  <div class="jumbotron-custom py-4">
-    <div class="container text-white">
-      <h2>{{ .Title }}</h2>
+  <div class="field page-head">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
       {{ with .Params.intro }}<p class="lead">{{ . }}</p>{{ end }}
     </div>
   </div>
 
-  <div class="container mt-4">
+  <div class="container my-5">
 
     {{/* Photo gallery — rendered when the page has a "photos" list in front matter */}}
     {{ with .Params.photos }}
-    <div class="row">
+    <div class="row g-4">
       {{ range . }}
-      <div class="col-sm-6 mb-4">
-        <img src="{{ .src | relURL }}" class="img-fluid" alt="{{ .caption }}">
-        <p class="text-muted mt-2">{{ .caption }}</p>
+      <div class="col-md-6">
+        <figure class="photo-card mb-0">
+          <img src="{{ .src | relURL }}" alt="{{ .caption }}">
+          <figcaption>{{ .caption }}</figcaption>
+        </figure>
       </div>
       {{ end }}
     </div>
     {{ end }}
 
-    {{/* Regular Markdown content (used on Family, Contact, etc.) */}}
+    {{/* Regular Markdown content (used on Contact, etc.) */}}
     {{ if .Content }}
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
+    <div class="row {{ if .Params.photos }}mt-5{{ end }}">
+      <div class="col-md-8 offset-md-2 prose">
         {{ .Content }}
       </div>
     </div>
