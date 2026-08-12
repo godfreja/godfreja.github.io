@@ -6,7 +6,7 @@ hero_subtitle: >
   I'm Jim Godfrey. As Mayor, I focus on our citizens and our future while safeguarding those qualities
   which make Cambridge a great place to raise a family. Fortunately, I work with great people. Our track
   record proves that a forward-looking vision delivers real results for Cambridge.
-hero_image: "assets/jim_official.jpg"
+hero_image: "img/jim_official.jpg"
 hero_image_alt: "Mayor Jim Godfrey"
 progress_heading: "Our Progress So Far and Our Goals for the Future"
 progress_subheading: "Stable growth which benefits every neighborhood in Cambridge."
@@ -51,6 +51,6 @@ pull_quotes:
       Every citizen in Cambridge deserves a city defined by livability, stability, fairness,
       integrity, and thoughtful optimism. I would be honored to continue the great work we have
       started and to earn your vote for Jim Godfrey as Mayor of Cambridge.
-campaign_photo: "assets/vote_matters.jpg"
+campaign_photo: "img/vote_matters.jpg"
 campaign_photo_alt: "Your vote matters!"
 ---

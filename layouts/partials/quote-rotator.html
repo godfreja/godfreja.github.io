@@ -1,0 +1,95 @@
+{{/*
+  Rotating quote band.
+  Expects a slice of quotes in .quotes, each with a "text" and an optional "cite".
+  All quotes are stacked in one grid cell, so the band is always as tall as the
+  longest quote and never changes height when it swaps. With one quote it renders
+  as a plain static band; with more than one, JS fades between them.
+*/}}
+
+{{ $quotes := .quotes }}
+{{ $cite := .cite }}
+
+<section class="pull-quote">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+
+        {{/* Rotation speed, in milliseconds. 30000 = 30 seconds. */}}
+        <div class="quote-rotator" data-quote-rotator data-quote-interval="30000">
+          {{ range $i, $q := $quotes }}
+          <figure class="quote-slide{{ if eq $i 0 }} is-active{{ end }}">
+            <blockquote>&ldquo;{{ $q.text }}&rdquo;</blockquote>
+            <figcaption><cite>{{ $q.cite | default $cite }}</cite></figcaption>
+          </figure>
+          {{ end }}
+        </div>
+
+        {{ if gt (len $quotes) 1 }}
+        <div class="quote-dots" data-quote-dots hidden>
+          {{ range $i, $q := $quotes }}
+          <button type="button"
+                  class="quote-dot{{ if eq $i 0 }} is-active{{ end }}"
+                  data-quote-dot
+                  aria-label="Show quote {{ add $i 1 }} of {{ len $quotes }}"></button>
+          {{ end }}
+        </div>
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ if gt (len $quotes) 1 }}
+<script>
+(function () {
+  var root = document.querySelector('[data-quote-rotator]');
+  if (!root) return;
+
+  var slides = Array.prototype.slice.call(root.querySelectorAll('.quote-slide'));
+  if (slides.length < 2) return;
+
+  var dotWrap = document.querySelector('[data-quote-dots]');
+  var dots = dotWrap ? Array.prototype.slice.call(dotWrap.querySelectorAll('[data-quote-dot]')) : [];
+  if (dotWrap) dotWrap.hidden = false;   // only show the controls if JS is running
+
+  var delay = parseInt(root.getAttribute('data-quote-interval'), 10) || 30000;
+  var index = 0;
+  var timer = null;
+
+  function show(n) {
+    index = (n + slides.length) % slides.length;
+    slides.forEach(function (s, k) {
+      s.classList.toggle('is-active', k === index);
+      s.setAttribute('aria-hidden', k === index ? 'false' : 'true');
+    });
+    dots.forEach(function (d, k) {
+      d.classList.toggle('is-active', k === index);
+      d.setAttribute('aria-current', k === index ? 'true' : 'false');
+    });
+  }
+
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function start() { stop(); timer = setInterval(function () { show(index + 1); }, delay); }
+
+  dots.forEach(function (d, k) {
+    d.addEventListener('click', function () { show(k); start(); });
+  });
+
+  // Pause while someone is reading or has tabbed in, and while the tab is hidden.
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  root.addEventListener('focusin', stop);
+  root.addEventListener('focusout', start);
+  if (dotWrap) {
+    dotWrap.addEventListener('mouseenter', stop);
+    dotWrap.addEventListener('mouseleave', start);
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { stop(); } else { start(); }
+  });
+
+  start();
+})();
+</script>
+{{ end }}

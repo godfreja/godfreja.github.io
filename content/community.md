@@ -5,14 +5,16 @@ intro: >
   Cambridge is more than a place to govern — it's a community to serve.
   Here are a few moments from Jim's time working alongside his neighbors.
 photos:
-  - src: "assets/winterfest_2026.jpg"
+  - src: "img/winterfest_2026.jpg"
     caption: "Jim, Jack the therapy K9, and Officer Gross hosting Winterfest 2026"
-  - src: "assets/reading_students.jpg"
+  - src: "img/reading_students.jpg"
     caption: "Jim reading to primary students at the CPS book exchange"
-  - src: "assets/new_businesses.jpg"
+  - src: "img/new_businesses.jpg"
     caption: "Welcoming new businesses to Cambridge"
-  - src: "assets/bike_trail.jpg"
+  - src: "img/bike_trail.jpg"
     caption: "Preserving the Cambridge Isanti bike walk trail"
-  - src: "assets/winterfest_2025.jpg"
+  - src: "img/winterfest_2025.jpg"
     caption: "Welcoming visitors to Winterfest 2025"
+  - src: "img/jim_ambassadors.jpg"
+    caption: "Engaging our community with the Cambridge ambassador’s for the annual night to unite celebration "
 ---
