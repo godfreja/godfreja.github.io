@@ -7,4 +7,4 @@ description: "Contact Jim Godfrey"
 512 Old North Main Street  
 Cambridge, MN 55008
 
-[Email Jim](mailto:contactjim@votejimgodfrey.com)
+[Email Jim](mailto:jimgodfrey77@gmail.com)
