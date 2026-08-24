@@ -394,6 +394,34 @@ a:hover { color: var(--coral-dk); }
   margin: 0;
 }
 
+/* Expandable transcript for photos of text (letters, signs, etc.) — keeps the
+   full content available to screen readers and to low-vision users who need
+   larger, reflowable text than a photo can offer. */
+.photo-card .letter-transcript {
+  border-top: 1px solid var(--line);
+  padding: .75rem 1rem .95rem;
+}
+
+.photo-card .letter-transcript summary {
+  cursor: pointer;
+  font-size: .92rem;
+  font-weight: 500;
+  color: var(--slate-dk);
+}
+
+.photo-card .letter-transcript summary:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.photo-card .letter-transcript p {
+  font-size: .95rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--ink);
+  margin: .85rem 0 0;
+}
+
 .prose { font-size: 1.05rem; line-height: 1.75; font-weight: 300; }
 .prose strong { font-weight: 600; color: var(--slate-dk); }
 

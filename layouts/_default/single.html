@@ -17,8 +17,20 @@
       {{ range . }}
       <div class="col-md-6">
         <figure class="photo-card mb-0">
-          <img src="{{ .src | relURL }}" alt="{{ .caption }}">
+          <img src="{{ .src | relURL }}" alt="{{ .alt | default .caption }}">
           <figcaption>{{ .caption }}</figcaption>
+          {{/* Photos of text (letters, signs, etc.) aren't readable by screen
+               readers and don't reflow for low-vision users who zoom the page.
+               An optional "transcript" field puts the full text in an
+               expandable <details> block so it's available to everyone. */}}
+          {{ with .transcript }}
+          <details class="letter-transcript">
+            <summary>Read the full text of this letter</summary>
+            {{ range split . "\n\n" }}
+              {{ with trim . "\n " }}<p>{{ . }}</p>{{ end }}
+            {{ end }}
+          </details>
+          {{ end }}
         </figure>
       </div>
       {{ end }}
