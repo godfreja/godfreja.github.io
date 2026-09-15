@@ -9,7 +9,26 @@
     </div>
   </div>
 
+  {{/* Optional: show the current campaign video on this page too, by setting
+       latest_video: true in the page's front matter. */}}
+  {{ if .Params.latest_video }}{{ partial "latest-video.html" . }}{{ end }}
+
   <div class="container my-5">
+
+    {{/* Video gallery — rendered when the page has a "videos" list in front
+         matter. Newest first; these sit above the photos. */}}
+    {{ with .Params.videos }}
+    <div class="row g-4 justify-content-center{{ if $.Params.photos }} mb-4{{ end }}">
+      {{ range . }}
+      <div class="col-md-6">
+        <figure class="photo-card video-card mb-0">
+          {{ partial "video-embed.html" (dict "id" .id "title" (.title | default .caption)) }}
+          <figcaption>{{ .caption }}</figcaption>
+        </figure>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
 
     {{/* Photo gallery — rendered when the page has a "photos" list in front matter */}}
     {{ with .Params.photos }}
