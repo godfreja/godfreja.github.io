@@ -4,7 +4,7 @@ title = "Jim Godfrey for Mayor of Cambridge"
 
 [params]
   description  = "Vote Jim Godfrey for Mayor of Cambridge, MN"
-  authorEmail  = "jim@votejimgodfrey.com"
+  authorEmail  = "contactjim@votejimgodfrey.com"
   address      = "512 Old North Main Street, Cambridge, MN 55008"
   copyright    = "2026"
   disclaimer   = "Prepared and Paid for by Friends of Jim Godfrey"
@@ -24,18 +24,6 @@ title = "Jim Godfrey for Mayor of Cambridge"
 
   # The footer band
   pillars = ["SAFETY", "STABILITY", "FAIRNESS"]
-
-  # ---- Latest campaign video ----
-  # This is the one place to change when a new video goes up: paste the part of
-  # the YouTube share link after youtu.be/ into `id` and update the text. The
-  # home page always shows whatever is here. Older videos stay on the Community
-  # page (see the `videos:` list in content/community.md).
-  [params.latest_video]
-    id      = "4TzMgAReJos"
-    title   = "Get to know Jim Godfrey"
-    heading = "Get to Know Jim"
-    blurb   = ""
-    caption = ""
 
 # Navigation menu — edit here to change the nav bar on every page
 [[menus.main]]

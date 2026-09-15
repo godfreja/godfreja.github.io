@@ -4,12 +4,6 @@ description: "Jim Godfrey in the Cambridge community"
 intro: >
   Cambridge is more than a place to govern — it's a community to serve.
   Here are a few moments from Jim's time working alongside his neighbors.
-# Campaign videos, newest first. To add one, copy a block and change the id
-# (the part of the YouTube share link after youtu.be/) and the caption.
-videos:
-  - id: "4TzMgAReJos"
-    title: "Get to know Jim Godfrey"
-    caption: "Get to know what local residents have to say about Mayor Jim Godfrey and his work for Cambridge!   Hear directly from the people who call our town home about leadership that puts Cambridge first."
 photos:
   - src: "img/winterfest_2026.jpg"
     caption: "Jim, Jack the therapy K9, and Officer Gross hosting Winterfest 2026"
