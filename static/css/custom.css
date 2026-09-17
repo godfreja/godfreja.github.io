@@ -469,3 +469,49 @@ a:hover { color: var(--coral-dk); }
 }
 
 .site-footer a { color: #ffffff; }
+
+/* ---------- video --------------------------------------------------------- */
+
+/* aspect-ratio keeps the 16:9 box without the old padding-top hack, so the
+   iframe never letterboxes or jumps as the page reflows on a phone. */
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000000;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* The featured video on the home page. White background so it separates the
+   periwinkle values strip above it from the tinted record cards below. */
+.latest-video { padding: 3.5rem 0; }
+
+.latest-video h2 { font-size: clamp(1.65rem, 3vw, 2.15rem); font-weight: 600; margin-bottom: .5rem; }
+
+.latest-video .section-sub {
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-bottom: 1.75rem;
+}
+
+.latest-video .video-frame { box-shadow: 0 10px 30px rgba(35, 37, 47, .12); }
+
+.latest-video .video-caption {
+  margin: 1rem 0 0;
+  font-size: .92rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+/* Video cards in the Community grid reuse .photo-card; the card already
+   rounds and clips its corners, so the frame inside it shouldn't round too. */
+.video-card .video-frame { border-radius: 0; }
