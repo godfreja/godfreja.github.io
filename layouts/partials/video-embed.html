@@ -1,12 +1,30 @@
 {{/* Responsive YouTube embed.
-     Call as: {{ partial "video-embed.html" (dict "id" "4TzMgAReJos" "title" "Get to know Jim Godfrey") }}
-     "id" is the part of the share link after youtu.be/ .
+     Call as: {{ partial "video-embed.html" (dict "id" "4TzMgAReJos" "title" "Get to know Jim" "aspect" "16/9") }}
+
+     "id"     the part of the YouTube share link after youtu.be/ .
+     "aspect" the shape of the video, width/height. Defaults to "16/9".
+              Use "9/16" for a Short (or anything else filmed vertically on a
+              phone) — otherwise YouTube zooms the tall frame to fill a wide
+              box and you get a close-up of whatever is in the middle.
+              Any ratio works: "4/5", "1/1", "1.91/1".
+
      youtube-nocookie.com is YouTube's privacy-enhanced host: it doesn't set
      tracking cookies on visitors who never press play. */}}
 {{- $id := .id -}}
 {{- $title := .title | default "Campaign video" -}}
+{{- $w := 16.0 -}}
+{{- $h := 9.0 -}}
+{{- $parts := split (replace (.aspect | default "16/9") " " "") "/" -}}
+{{- if eq (len $parts) 2 -}}
+  {{- $pw := float (index $parts 0) -}}
+  {{- $ph := float (index $parts 1) -}}
+  {{- if and (gt $pw 0.0) (gt $ph 0.0) -}}
+    {{- $w = $pw -}}
+    {{- $h = $ph -}}
+  {{- end -}}
+{{- end -}}
 {{- with $id -}}
-<div class="video-frame">
+<div class="video-frame{{ if gt $h $w }} video-frame-portrait{{ end }}" style="aspect-ratio: {{ $w }} / {{ $h }};">
   <iframe
     src="https://www.youtube-nocookie.com/embed/{{ . }}?rel=0"
     title="{{ $title }}"

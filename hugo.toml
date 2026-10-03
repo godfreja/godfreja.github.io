@@ -31,8 +31,9 @@ title = "Jim Godfrey for Mayor of Cambridge"
   # home page always shows whatever is here. Older videos stay on the Community
   # page (see the `videos:` list in content/community.md).
   [params.latest_video]
-    id      = "4TzMgAReJos"
+    id      = "pSlSwX4v0hw"
     title   = "Get to know Jim Godfrey"
+    aspect  = "9/16"   # "16/9" for a normal video, "9/16" for a Short
     heading = "Get to Know Jim"
     blurb   = ""
     caption = ""

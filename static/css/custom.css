@@ -512,6 +512,19 @@ a:hover { color: var(--coral-dk); }
   font-weight: 300;
 }
 
+/* A vertical video (a Short, or anything filmed on a phone) keeps its 9:16
+   shape via the inline aspect-ratio the partial writes. Left full-width it
+   would be taller than the viewport, so cap it and centre it instead. */
+.video-frame-portrait {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Video cards in the Community grid reuse .photo-card; the card already
-   rounds and clips its corners, so the frame inside it shouldn't round too. */
+   rounds and clips its corners, so the frame inside it shouldn't round too.
+   A portrait frame is narrower than its card, so it keeps its own corners. */
 .video-card .video-frame { border-radius: 0; }
+/* Narrower again inside a Community card, so a Short doesn't tower over the
+   landscape video sitting next to it in the grid. */
+.video-card .video-frame-portrait { border-radius: 6px; max-width: 280px; margin-top: 1rem; }

@@ -14,7 +14,7 @@
           {{ with $.Site.Params.latest_video.blurb }}
           <p class="section-sub">{{ . }}</p>
           {{ end }}
-          {{ partial "video-embed.html" (dict "id" . "title" $.Site.Params.latest_video.title) }}
+          {{ partial "video-embed.html" (dict "id" . "title" $.Site.Params.latest_video.title "aspect" $.Site.Params.latest_video.aspect) }}
           {{ with $.Site.Params.latest_video.caption }}
           <p class="video-caption">{{ . }}</p>
           {{ end }}

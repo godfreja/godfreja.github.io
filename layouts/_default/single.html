@@ -22,7 +22,7 @@
       {{ range . }}
       <div class="col-md-6">
         <figure class="photo-card video-card mb-0">
-          {{ partial "video-embed.html" (dict "id" .id "title" (.title | default .caption)) }}
+          {{ partial "video-embed.html" (dict "id" .id "title" (.title | default .caption) "aspect" .aspect) }}
           <figcaption>{{ .caption }}</figcaption>
         </figure>
       </div>
