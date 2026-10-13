@@ -7,13 +7,16 @@ intro: >
 # Campaign videos, newest first. To add one, copy a block and change the id
 # (the part of the YouTube share link after youtu.be/) and the caption.
 videos:
+  - id: "dIYAtkAUGvU"
+    title: "Bridging Divides: How we handle controversial issues"
+    caption: "Bridging Divides: How we handle controversial issues"
+  - id: "4TzMgAReJos"
+    title: "Get to know Jim Godfrey"
+    caption: "Get to know what local residents have to say about Mayor Jim Godfrey and his work for Cambridge!   Hear directly from the people who call our town home about leadership that puts Cambridge first."
   - id: "pSlSwX4v0hw"
     aspect: "9/16"   # a Short; leave this out for normal 16:9 videos
     title: "Hear from Jim's colleagues and students"
     caption: "In the classroom and around Cambridge, character is everything. But don't just take our word for it—listen to what the colleagues and former students Jim has worked alongside have to say."
-  - id: "4TzMgAReJos"
-    title: "Get to know Jim Godfrey"
-    caption: "Get to know what local residents have to say about Mayor Jim Godfrey and his work for Cambridge!   Hear directly from the people who call our town home about leadership that puts Cambridge first."
 photos:
   - src: "img/winterfest_2026.jpg"
     caption: "Jim, Jack the therapy K9, and Officer Gross hosting Winterfest 2026"
