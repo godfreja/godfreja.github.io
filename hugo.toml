@@ -31,10 +31,10 @@ title = "Jim Godfrey for Mayor of Cambridge"
   # home page always shows whatever is here. Older videos stay on the Community
   # page (see the `videos:` list in content/community.md).
   [params.latest_video]
-    id      = "dIYAtkAUGvU"
-    title   = "Bridging Divides: How we handle controversial issues"
+    id      = "yaxiwI3dUPw"
+    title   = "Cambridge Businesses"
     aspect  = "16/9"   # "16/9" for a normal video, "9/16" for a Short
-    heading = "Bridging Divides: How We Handle Controversial Issues"
+    heading = "Cambridge Businesses"
     blurb   = ""
     caption = ""
 

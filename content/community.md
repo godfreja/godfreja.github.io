@@ -7,6 +7,9 @@ intro: >
 # Campaign videos, newest first. To add one, copy a block and change the id
 # (the part of the YouTube share link after youtu.be/) and the caption.
 videos:
+  - id: "yaxiwI3dUPw"
+    title: "Cambridge Businesses"
+    caption: "Stable economic growth doesn’t just happen—it creates real benefits for every family in our town. Over Jim's time as Mayor he has worked hard to foster an environment built on safety, fairness, and responsible management that has allowed us to reduce the city tax rate while continuing our community's steady progress. Jim hope's he can earn your vote so we can keep building a strong, vibrant future together"
   - id: "dIYAtkAUGvU"
     title: "Bridging Divides: How we handle controversial issues"
     caption: "Bridging Divides: How we handle controversial issues"
